@@ -1,0 +1,131 @@
+body, html {
+  margin: 0;
+  height: 100%;
+  text-align: center;
+  font-family: 'Oxygen Mono', monospace;
+  color: #999;
+}
+.logo {
+  justify-content: center;
+  align-items: center;
+  margin-top: 75px;
+  animation: rotateLogo 4s linear infinite; /* Animation du logo */
+}
+
+@keyframes rotateLogo {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.logo img {
+  width: 200px;
+  height: 150px;
+}
+
+p {
+  text-align: left;
+  margin: 0;
+  font-size: 14pt; 
+  font-weight: 900;
+  width: 50%;
+  display: none;
+}
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 1pt;
+  font-size: 30pt;
+  margin-bottom: 15px;
+  display: none; 
+  
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  top: 0;
+  height: 500vh;
+  margin-bottom: 20px;
+}
+
+.card-container {
+  width: 60%;
+  position: relative;
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: flex-start; /* Alignement à gauche par défaut */
+}
+
+.card {
+  width: 200px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px #0000001a;
+  animation: floatAnimation 4s ease-in-out infinite;
+}
+
+.card:nth-child(even) {
+  align-self: flex-end;
+  margin: 20px 0 20px 20px; /* Marge pour les cartes apparaissant à droite */
+}
+
+.card:nth-child(odd) {
+  margin: 20px 60px 20px 0; /* Marge pour les cartes apparaissant à gauche */
+}
+.centered-card p {
+display: inline-block; /* Rendre les paragraphes visibles dans la carte centrée */
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Media queries pour différents breakpoints */
+@media (max-width: 1268px) {
+.card-container {
+  width: 70%;
+}
+}
+
+@media (max-width: 968px) {
+.card-container {
+  width: 80%;
+  
+}
+}
+
+@media (max-width: 768px) {
+.card-container {
+  width: 90%;
+  
+}
+}
+
+@media (max-width: 568px) {
+.card-container {
+  width: 100%;
+}
+p {
+  font-size: 12pt; /* Taille de police réduite pour les petits écrans */
+}
+}
+.centered-card {
+  width: 60%; /* Taille de la carte centrée */
+  margin: 20px auto; /* Centrage horizontal */
+  text-align: center; /* Centrage du contenu */
+  animation: floatAnimation 4s ease-in-out infinite; /* Désactiver l'animation */
+}
