@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<title>Webmaster</title>
+
+</head>
+<body>
+
+
+
+<h1>Webmaster datacorporation</h1>
+<div class="logo">
+    <img src="datacienPlan-de-travail-1-1024x1024.png" alt="Logo">
+  </div>
+
+<div class="container">
+  <div class="card-container">
+    <div class="card">
+      <p>Bonjour a tous j'espere que vous allez bien</p>
+    </div>
+    <div class="card">
+      <p>Et que vous avez aimé la session des progammeur.</p>
+    </div>
+    <div class="card">
+      <p>Place maintenant a la plus cool des sections</p>
+    </div>
+    <div class="card">
+        <p>Les webmasters !!!!</p>
+    </div>
+    <div class="card">
+        <p>Les webmaster sont chargés de la confection et de la maintenance des sites web.Nous nous servons principalement des langages tels que html et css javascript php et sql</p>
+    </div>
+    <div class="card">
+        <p>Je laisserai le liens d'un document a la fin que vous telechargerez pour connaitre les bases de html et css </p>
+    </div>
+    <div class="card">
+        <p>Vous devez retenir un maximum d'information de ce document surtout les pages 73 a 79 </p>
+    </div>
+    <div class="card">
+        <p>Ensuite en vous servant de ce que vous aurez apris vous me rendrez les travaux suivants </p>
+    </div>
+    <div class="card">
+        <p>Reproduisez le plus fidelement possible la page d'inscription du label prestige. Avec les animations si vous etes nerf (le footer n'est pas oblige) </p>
+    </div>
+    <div class="card">
+        <p>En deuxieme exercice je vous demanderai de creer une bibliotheque de document de physique. Vous y incluerez uniquement les cours du Dr N'cho (Oui c'est mon idole) </p>
+    </div>
+    <div class="card">
+        <p>Je vous recommande de telecharger l'editeur de code vs code pour vous mettre au travail  </p>
+    </div>
+    <div class="card">
+        <p>Bonne chance famille </p>
+    </div>
+    <div class="card centered-card">
+        <p>En cadeau :<a href="1-html_css.pdf">1-html_css.pdf</a></p>
+    </div>
+  </div>
+</div>
+
+<script>
+function typeEffect(element, speed) {
+  return new Promise(resolve => {
+    var text = element.innerHTML;
+    element.innerHTML = "";
+
+    var i = 0;
+    var timer = setInterval(function() {
+      if (i < text.length) {
+        element.innerHTML += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(timer);
+        resolve();
+      }
+    }, speed);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", async function(event) {
+  var speed = 10;
+  var title = document.querySelector('h1');
+  var cards = document.querySelectorAll('.card');
+
+  // Afficher le titre
+  title.style.display = "inline-block";
+  // Typage du titre
+  await typeEffect(title, speed);
+
+  // Typage des paragraphes dans les cartes
+  for (let i = 0; i < cards.length; i++) {
+    var paragraphs = cards[i].querySelectorAll('p');
+    if (!cards[i].classList.contains('centered-card')) { // Exclure la nouvelle carte centrée
+      for (let paragraph of paragraphs) {
+        paragraph.style.display = "inline-block";
+        await typeEffect(paragraph, speed);
+      }
+    }
+    if (i < cards.length - 1) {
+      await new Promise(resolve => setTimeout(resolve, 3000)); // Délai de 3 secondes entre les cartes
+    }
+  }
+});
+
+</script>
+</body>
+</html>
